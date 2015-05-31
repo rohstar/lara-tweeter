@@ -1,9 +1,10 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
+use App\Tweet;
 use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Request;
 
 class TweetController extends Controller {
 
@@ -14,69 +15,56 @@ class TweetController extends Controller {
 	 */
 	public function index()
 	{
-        return view('pages.post');
+        $tweets = Tweet::all();
+
+        return view('pages.posts.show', compact('tweets'));
+
+        //return User::find($userId)->posts;
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
 	public function create()
+
 	{
-		//
+        return view('pages.posts.create');
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
 	public function store()
-	{
-		//
+
+    {
+        // get the content
+        $input = Request::get('content');
+        // associate the current user to the content
+        $user = Auth::id();
+        // store the value to the database.
+        $thing = Tweet::create(['user_id' => $user, 'content' => $input]);
+
+        return redirect('post');
+
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function show($id)
+
 	{
-		//
+		$tweet = Tweet::findOrFail($id);
+        return view('pages.posts.one_post', compact('tweet'));
+        //return $tweet;
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function edit($id)
+
 	{
 		//
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+
 	public function update($id)
+
 	{
 		//
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function destroy($id)
+
 	{
 		//
 	}

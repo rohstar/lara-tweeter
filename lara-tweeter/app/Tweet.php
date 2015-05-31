@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tweet extends Model {
 
 	//
+    protected $fillable = ['content','user_id'];
 
     public function user(){
 
@@ -14,6 +15,11 @@ class Tweet extends Model {
     public function comment(){
 
         return $this->hasMany('App\Comment');
+    }
+
+    public function getDates()
+    {
+        return ['created_at'];
     }
 
 }
