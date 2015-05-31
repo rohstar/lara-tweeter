@@ -61,10 +61,19 @@
 		</div>
 	</nav>
     <div class="content">
+        @include('flash::message')
 	@yield('content')
     </div>
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        //for the delay in the flash message
+        $('div.alert').delay(5000).slideUp(300);
+        //if you wanted an overlay
+        $('#flash-overlay-modal').modal();
+    </script>
+
 </body>
 </html>

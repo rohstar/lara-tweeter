@@ -18,12 +18,13 @@ Route::get('user/{id}', 'UserController@show');
 Route::get('user/{id}/{post_id}', 'UserController@showUserPost');
 Route::get('user/all', 'UserController@showUserPost');
 
-    Route::get('post', 'TweetController@index');
-    Route::get('post/make', 'TweetController@create');
-    Route::get('post/{id}', 'TweetController@show');
-    Route::post('post', 'TweetController@store');
+Route:resource('tweet','TweetController');
 
-//Route::controller('dashboard', 'DashboardController');
+//    Route::get('post', 'TweetController@index');
+//    Route::get('post/make', 'TweetController@create');
+//    Route::get('post/{id}', 'TweetController@show');
+//    Route::post('post', 'TweetController@store');
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

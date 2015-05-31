@@ -44,25 +44,11 @@ Handling Friendships
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
+
     public function friends()
     {
         return $this->belongsToMany('User', 'friends_users', 'user_id', 'friend_id');
     }
 
-    /**
-     * @param User $user
-     */
-    public function addFriend(User $user)
-    {
-        $this->friends()->attach($user->id);
-    }
-
-    /**
-     * @param User $user
-     */
-    public function removeFriend(User $user)
-    {
-        $this->friends()->detach($user->id);
-    }
 
 }

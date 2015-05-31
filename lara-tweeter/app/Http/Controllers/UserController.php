@@ -61,7 +61,8 @@ class UserController extends Controller {
 	public function show($id)
 	{
         $tweets = Tweet::where('user_id','=',$id)->get();
-        return view('pages.profile', ['user' => User::findOrFail($id)],['tweets' => $tweets]);
+        //$tweets = User::find($id)->tweets->toArray());
+        return view('pages.profile.profile', ['user' => User::findOrFail($id)],['tweets' => $tweets]);
 	}
 
 	/**
@@ -71,8 +72,10 @@ class UserController extends Controller {
 	 * @return Response
 	 */
 	public function edit($id)
-	{
-		//
+    {
+//		$info = User::findOrFail($id);
+//
+//        return view('pages.profile.edit', compact($info));
 	}
 
 	/**

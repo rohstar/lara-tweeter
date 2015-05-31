@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Auth;
 
 class TweetController extends Controller {
 
+
+    public function __construct(){
+
+        // uses the Authenticate Middleware to check if
+        // the request is from a logged-in user
+       $this->middleware('auth');
+    }
+
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -15,7 +24,9 @@ class TweetController extends Controller {
 	 */
 	public function index()
 	{
-        // take the tweets from the table by descending order of created_at, and then get those vals.
+        // take the tweets from the table by
+        // descending order of created_at,
+        // and then get those vals.
 
         $tweets = Tweet::latest('created_at')->get();
 
@@ -35,12 +46,12 @@ class TweetController extends Controller {
     public function store(CreateTweetRequest $request)
 
     {
-        // get the content
-        $input = $request->get('content');
         // associate the current user to the content
-        $user = Auth::id();
+        Auth::user()->tweets()->create($request->all());
         // store the value to the database.
-        $thing = Tweet::create(['user_id' => $user, 'content' => $input]);
+        //$thing = Tweet::create(['user_id' => $user, 'content' => $input]);
+
+        flash()->success('You have shared your profound wisdom with the world!');
 
         return redirect('post');
 
