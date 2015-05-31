@@ -16,19 +16,21 @@ class UserController extends Controller {
 	 */
 	public function index()
 	{
-        $tweets = Tweet::where('user_id','=',$id)->get();
-        return view('pages.profile', ['user' => User::findOrFail($id)],['tweets' => $tweets]);
+      /*  $tweets = Tweet::where('user_id','=',$id)->get();
+        return view('pages.profile', ['user' => User::findOrFail($id)],['tweets' => $tweets]);*/
 	}
 
     /**
      * @param $id
      * @return \Illuminate\View\View
      */
-    public function showProfile($id)
+
+    public function showUserPost($id, $post_id)
     {
-        $tweets = Tweet::where('user_id','=',$id)->get();
-        return view('pages.profile', ['user' => User::findOrFail($id)],['tweets' => $tweets]);
+        $tweets = Tweet::where('user_id',$id)->where('id',$post_id)->get();
+        return $tweets;
     }
+
 
 	/**
 	 * Show the form for creating a new resource.
@@ -58,7 +60,8 @@ class UserController extends Controller {
 	 */
 	public function show($id)
 	{
-
+        $tweets = Tweet::where('user_id','=',$id)->get();
+        return view('pages.profile', ['user' => User::findOrFail($id)],['tweets' => $tweets]);
 	}
 
 	/**

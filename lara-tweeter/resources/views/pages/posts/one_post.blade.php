@@ -7,9 +7,14 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         @if($tweet->content != null)
-                            <div class="body">{{ $tweet->content }} </div>
-                            <div class="text-primary">by {{\App\User::find($tweet->user_id)->name}}</div>
-                            <div class="text-primary">posted {{$tweet->created_at->diffForHumans()}}</div>
+                            <div class="body">
+
+                                <div class="page-header">
+                                    <h1> {{ $tweet->content }} <small>by {{\App\User::find($tweet->user_id)->name}}
+                                            <div class="text-primary">posted {{$tweet->created_at->diffForHumans()}}</div>
+                                        </small></h1>
+                                </div>
+                            </div>
                         @endif
                     </div>
                 </div>

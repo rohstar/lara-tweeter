@@ -14,8 +14,9 @@
 Route::get('/', 'HomeController@index');
 
 Route::get('home', 'HomeController@index');
-//Route::get('profile', 'UserController@index');
-Route::get('user/{id}', 'UserController@showProfile');
+Route::get('user/{id}', 'UserController@show');
+Route::get('user/{id}/{post_id}', 'UserController@showUserPost');
+Route::get('user/all', 'UserController@showUserPost');
 
     Route::get('post', 'TweetController@index');
     Route::get('post/make', 'TweetController@create');
