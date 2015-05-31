@@ -14,9 +14,9 @@
                         @foreach ($tweets as $tweet)
 
 
-    <li class="list-group-item"> {{ $tweet->content }} ...
+    <li class="list-group-item"> {{ $tweet->content }}
 
-                                <span class="badge">posted ({{$tweet->created_at->diffForHumans()}})</span>
+                                <span class="badge">{{$tweet->created_at->diffForHumans()}}</span>
     </li>
                     @endforeach
                         </ul>
