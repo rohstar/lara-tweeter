@@ -40,8 +40,11 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">Laravel 5</div>
-				<div class="quote">{{ Inspiring::quote() }}</div>
+				<div class="title">Twitter Feat. Laravel</div>
+                <div class="quote"><a href="/home">Register/Login</a>
+				<!---<div class="quote">{{ Inspiring::quote() }}</div>-->
+                    <br><br><br><br><br><br><br><br>
+                <div class="quote">Created by Rohan Maheshwari
 			</div>
 		</div>
 	</body>

@@ -34,6 +34,11 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a href="{{ url('/') }}">Home</a></li>
+                    @if (Auth::check())
+                        <li><a href="{{ url('post') }}">Lara-Feeds</a></li>
+                        <li><a href="{{ url('post/make') }}">Create Lara-Tweet</a></li>
+
+                     @endif
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -44,6 +49,9 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
+                                @if (Auth::check())
+                                <li><a href="{{ url('user/'.Auth::user()->id.'') }}">Profile</a></li>
+                                @endif
 								<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
 							</ul>
 						</li>

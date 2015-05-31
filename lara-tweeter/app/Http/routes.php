@@ -11,18 +11,18 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'HomeController@index');
 
 Route::get('home', 'HomeController@index');
+//Route::get('profile', 'UserController@index');
 Route::get('user/{id}', 'UserController@showProfile');
-
-Route::get('contact', 'WelcomeController@contact');
 
     Route::get('post', 'TweetController@index');
     Route::get('post/make', 'TweetController@create');
     Route::get('post/{id}', 'TweetController@show');
     Route::post('post', 'TweetController@store');
 
+//Route::controller('dashboard', 'DashboardController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
