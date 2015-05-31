@@ -18,6 +18,8 @@ class CreateTweetsTable extends Migration {
             $table->longText('content');
             $table->unsignedInteger('user_id');
 			$table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
 		});
 	}
 

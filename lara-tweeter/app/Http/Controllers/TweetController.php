@@ -1,10 +1,10 @@
 <?php namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateTweetRequest;
 use App\Tweet;
 use App\Http\Controllers\Controller;
 //use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Request;
 
 class TweetController extends Controller {
 
@@ -15,11 +15,11 @@ class TweetController extends Controller {
 	 */
 	public function index()
 	{
-        $tweets = Tweet::all();
+        // take the tweets from the table by descending order of created_at, and then get those vals.
+
+        $tweets = Tweet::latest('created_at')->get();
 
         return view('pages.posts.show', compact('tweets'));
-
-        //return User::find($userId)->posts;
 	}
 
 	public function create()
@@ -28,11 +28,15 @@ class TweetController extends Controller {
         return view('pages.posts.create');
 	}
 
-	public function store()
+    /**
+     * @param CreateTweetRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function store(CreateTweetRequest $request)
 
     {
         // get the content
-        $input = Request::get('content');
+        $input = $request->get('content');
         // associate the current user to the content
         $user = Auth::id();
         // store the value to the database.

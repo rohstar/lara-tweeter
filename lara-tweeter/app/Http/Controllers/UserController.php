@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use App\User;
+use App\Tweet;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -16,6 +18,16 @@ class UserController extends Controller {
 	{
 
 	}
+
+    /**
+     * @param $id
+     * @return \Illuminate\View\View
+     */
+    public function showProfile($id)
+    {
+        $tweets = Tweet::where('user_id','=',$id)->get();
+        return view('pages.profile', ['user' => User::findOrFail($id)],['tweets' => $tweets]);
+    }
 
 	/**
 	 * Show the form for creating a new resource.
