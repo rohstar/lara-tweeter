@@ -1,6 +1,9 @@
 <?php namespace App\Http\Controllers;
 
 
+use App\User;
+use Auth;
+use DB;
 
 class HomeController extends Controller {
 
@@ -32,8 +35,13 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-
-        $user= 'Rohan';
+$user= Auth::user();
+//        $list = DB::table('friends')->lists('friend_id');
+//
+//        $values = implode(',', $list);
+//        $sql = DB::select('SELECT content FROM tweets WHERE ID IN ($values)');
+//
+//        return $sql;
 		return view('home',compact('user'));
 	}
 

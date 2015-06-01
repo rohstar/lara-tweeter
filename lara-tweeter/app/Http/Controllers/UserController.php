@@ -62,7 +62,9 @@ class UserController extends Controller {
 	{
         $tweets = Tweet::where('user_id','=',$id)->get();
         //$tweets = User::find($id)->tweets->toArray());
-        return view('pages.profile.profile', ['user' => User::findOrFail($id)],['tweets' => $tweets]);
+        $f = User::find($id)->friends->lists('name');
+        $package = array(User::findOrFail($id),$f);
+        return view('pages.profile.profile', ['idAndFriends' => $package],['tweets' => $tweets]);
 	}
 
 	/**

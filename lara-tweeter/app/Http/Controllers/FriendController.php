@@ -6,6 +6,7 @@ use App\Http\Requests\AddFriendRequest;
 use App\Http\Controllers\Controller;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Request;
 
 class FriendController extends Controller {
@@ -17,10 +18,7 @@ class FriendController extends Controller {
 	 */
 	public function index($user_id)
 	{
-		$user = User::find($user_id);
-        $friends = $user->friends()->get();
-        return view('pages.profile.myfollows',compact('friends'));
-	}
+    }
 
     /**
      *
@@ -30,9 +28,6 @@ class FriendController extends Controller {
      */
     public function followers($friend_id)
     {
-        $followers = Friend::where('friend_id',$friend_id)->get();
-
-        return $followers;
     }
 
     /**
@@ -53,9 +48,9 @@ class FriendController extends Controller {
 	 */
 	public function store(AddFriendRequest $request)
 	{
-        Friend::create($request->all());
-
-        return redirect('posts');
+        Auth::user()->addFriend($request->get('hidden'));
+        flash('Followed!');
+        return redirect('/');
 	}
 
 	/**

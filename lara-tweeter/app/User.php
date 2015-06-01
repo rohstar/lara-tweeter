@@ -49,26 +49,20 @@ Handling Friendships
 
     public function friends()
     {
-        return $this->hasMany('App\Friend');
+        return $this->belongsToMany('App\User','friends','user_id','friend_id');
     }
 
-    public function follows($user_id, $friend_id){
-
-        $friend = $this->friends()->where('user_id', $user_id)->where('friend_id',$friend_id);
-
-        if($friend){return true;}
-        return false;
-
+    public function addFriend($friendId)
+    {
+        $this->friends()->attach($friendId);
     }
 
-    public function loggedInFollows($friend_id){
+    public function follows($friend_id){
 
-        $friend = $this->friends()->where('user_id', Auth::user())->where('friend_id',$friend_id);
+        $friend = $this->friends()->where('friend_id', $friend_id);
 
-        if($friend){return true;}
-        return false;
+        return $friend;
 
     }
-
 
 }
