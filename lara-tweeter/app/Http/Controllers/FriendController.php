@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Request;
+use Flash;
 
 class FriendController extends Controller {
 
@@ -49,7 +50,7 @@ class FriendController extends Controller {
 	public function store(AddFriendRequest $request)
 	{
         Auth::user()->addFriend($request->get('hidden'));
-        flash('Followed!');
+        Flash::success('Followed!');
         return redirect('/');
 	}
 

@@ -32,16 +32,19 @@
                         @endif
                         </div>
                     </div>
-                <div class="panel-heading">{{ $idAndFriends[0]->name }} follows: </div>
-                <div class="panel-body">
-                    @foreach($idAndFriends[1] as $friend)
-
-                        <li class="list-group-item">
-                            {{$friend}}
-                        </li>
-                    @endforeach
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel-heading">{{ $idAndFriends[0]->name }} follows: </div>
+                            <div class="panel-body">
+                                @foreach($idAndFriends[1] as $friend)
+                                     <li class="list-group-item">
+                                         {{$friend}}
+                                     </li>
+                                 @endforeach
+                             </div>
+                    </div>
                 </div>
-                </div>
+            </div>
             </div>
                 </div>
             </div>

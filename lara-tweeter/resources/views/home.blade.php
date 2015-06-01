@@ -9,6 +9,18 @@
 
                     <div class="panel-body">
                         Welcome Home, {{ Auth::user()->name }}!
+
+                        <div class ="content">
+                            <ul class="list-group">
+                                @foreach ($tweets as $tweet)
+
+                                    <a href="{{url('/tweet', $tweet->id)}}">
+
+                                        <div class="body"><h5>{{ $tweet->content }}</h5> </a>
+                                    posted by {{\App\User::find($tweet->user_id)->name}} ({{$tweet->created_at}})</div>
+                            @endforeach
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

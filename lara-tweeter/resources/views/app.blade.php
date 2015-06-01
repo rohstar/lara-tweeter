@@ -35,7 +35,6 @@
 				<ul class="nav navbar-nav">
 					<li><a href="{{ url('/') }}">Home</a></li>
                     @if (Auth::check())
-                        <li><a href="{{ url('tweet') }}">Lara-Feeds</a></li>
                         <li><a href="{{ url('tweet/create') }}">Create Lara-Tweet</a></li>
 
                      @endif

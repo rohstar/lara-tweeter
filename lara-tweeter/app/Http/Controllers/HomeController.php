@@ -4,6 +4,7 @@
 use App\User;
 use Auth;
 use DB;
+use App\Tweet;
 
 class HomeController extends Controller {
 
@@ -36,13 +37,10 @@ class HomeController extends Controller {
 	public function index()
 	{
 $user= Auth::user();
-//        $list = DB::table('friends')->lists('friend_id');
-//
-//        $values = implode(',', $list);
-//        $sql = DB::select('SELECT content FROM tweets WHERE ID IN ($values)');
-//
-//        return $sql;
-		return view('home',compact('user'));
+        $user = Auth::user($user->id);
+        $friend_ids = $user->friends->lists('id');
+        $tweets = DB::table('tweets')->whereIn('user_id', $friend_ids)->get();
+		return view('home',['user' => $user, 'tweets' => $tweets]);
 	}
 
 }

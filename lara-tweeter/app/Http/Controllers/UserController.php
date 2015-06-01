@@ -5,7 +5,9 @@ use App\Tweet;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use DB;
 use Illuminate\Http\Request;
+
 
 class UserController extends Controller {
 
@@ -53,8 +55,12 @@ class UserController extends Controller {
 	}
 
 	/**
-	 * Display the specified resource.
-	 *
+	 * Show's the user's profile. the
+	 * package array contains a list
+     * of the user's tweets and an
+     * array that has the user id
+     * and friend's names.
+     *
 	 * @param  int  $id
 	 * @return Response
 	 */
