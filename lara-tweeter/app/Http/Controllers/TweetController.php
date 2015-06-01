@@ -53,7 +53,7 @@ class TweetController extends Controller {
 
         flash()->success('You have shared your profound wisdom with the world!');
 
-        return redirect('post');
+        return redirect('tweet');
 
 	}
 

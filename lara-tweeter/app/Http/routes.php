@@ -15,8 +15,12 @@ Route::get('/', 'HomeController@index');
 
 Route::get('home', 'HomeController@index');
 Route::get('user/{id}', 'UserController@show');
+Route::get('user/{id}/follows/', 'FriendController@index');
+Route::get('user/{id}/followers/', 'FriendController@followers');
 Route::get('user/{id}/{post_id}', 'UserController@showUserPost');
 Route::get('user/all', 'UserController@showUserPost');
+
+
 
 Route:resource('tweet','TweetController');
 

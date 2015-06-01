@@ -10,7 +10,7 @@
                 <div class="panel-body">
                     @foreach ($tweets as $tweet)
 
-                        <a href="{{url('/post', $tweet->id)}}">
+                        <a href="{{url('/tweet', $tweet->id)}}">
 
                             <div class="body"><h5>{{ $tweet->content }}</h5> </a>
                         posted by {{\App\User::find($tweet->user_id)->name}} ({{$tweet->created_at->diffForHumans()}})</div>

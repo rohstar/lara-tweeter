@@ -14,7 +14,7 @@
                             <li><a href="{{ url('/auth/register') }}">Register</a></li>
                         @else
 
-                            {!! Form::open(['url' => 'post', 'data-toggle' => 'validator']) !!}
+                            {!! Form::open(['url' => 'tweet', 'data-toggle' => 'validator']) !!}
                             <div class="form-group">
                                 {!! Form::text('content',null,[ 'class' => 'form-control', 'maxlength' => '200']) !!}
                                 <span class="help-block">Max 200 Characters</span>

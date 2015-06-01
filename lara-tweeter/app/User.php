@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
@@ -42,12 +43,31 @@ Handling Friendships
 
 */
     /**
+     * get all friends associated with given User
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
 
     public function friends()
     {
-        return $this->belongsToMany('User', 'friends_users', 'user_id', 'friend_id');
+        return $this->hasMany('App\Friend');
+    }
+
+    public function follows($user_id, $friend_id){
+
+        $friend = $this->friends()->where('user_id', $user_id)->where('friend_id',$friend_id);
+
+        if($friend){return true;}
+        return false;
+
+    }
+
+    public function loggedInFollows($friend_id){
+
+        $friend = $this->friends()->where('user_id', Auth::user())->where('friend_id',$friend_id);
+
+        if($friend){return true;}
+        return false;
+
     }
 
 

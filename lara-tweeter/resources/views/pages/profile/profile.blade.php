@@ -7,19 +7,17 @@
                 <div class="panel panel-default">
                     <div class="jumbotron">
                         <h1>{{ $user->name }}'s profile.</h1>
+                        @if(Auth::user()->id  != $user->id)
+                        <div class="pull-right">
+                            <input type="submit" class="btn btn-small" value="Follow"/>
+                        </div>
+                        @endif
                     </div>
                     <div class="panel-heading">Recent Lara-Tweets</div>
                     <div class="panel-body">
-                        <ul class="list-group">
-                        @foreach ($tweets as $tweet)
-
-
-    <li class="list-group-item"> {{ $tweet->content }}
-
-                                <span class="badge">{{$tweet->created_at->diffForHumans()}}</span>
-    </li>
-                    @endforeach
-                        </ul>
+                        @if($user->follows(Auth::user(),$user->id))
+                            @include('pages.partials.tweets',['user' => $user->id])
+                        @endif
                         </div>
                     </div>
                 </div>
