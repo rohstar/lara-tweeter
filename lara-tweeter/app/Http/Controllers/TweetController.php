@@ -48,12 +48,9 @@ class TweetController extends Controller {
     {
         // associate the current user to the content
         Auth::user()->tweets()->create($request->all());
-        // store the value to the database.
-        //$thing = Tweet::create(['user_id' => $user, 'content' => $input]);
-
         flash()->success('You have shared your profound wisdom with the world!');
 
-        return redirect('tweet');
+        return redirect('/');
 
 	}
 

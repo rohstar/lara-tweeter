@@ -30,7 +30,7 @@ class HomeController extends Controller {
 	}
 
 	/**
-	 * Show the application dashboard to the user.
+	 * Creates the feeds
 	 *
 	 * @return Response
 	 */
@@ -38,8 +38,11 @@ class HomeController extends Controller {
 	{
 $user= Auth::user();
         $user = Auth::user($user->id);
+        //adding your friends id's to the array
         $friend_ids = $user->friends->lists('id');
-        $tweets = DB::table('tweets')->whereIn('user_id', $friend_ids)->get();
+        // add your own id to show tweets by you
+        $friend_ids[] = $user->id;
+        $tweets = DB::table('tweets')->whereIn('user_id', $friend_ids)->orderBy('created_at','desc')->get();
 		return view('home',['user' => $user, 'tweets' => $tweets]);
 	}
 
