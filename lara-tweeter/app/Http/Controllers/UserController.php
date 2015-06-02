@@ -66,11 +66,22 @@ class UserController extends Controller {
 	 */
 	public function show($id)
 	{
+        // put all people followed into $f
         $tweets = Tweet::where('user_id','=',$id)->get();
         $f = User::find($id)->friends->lists('name');
-        $package = array(User::findOrFail($id),$f);
+
+        // put all followers into $follower_list
+        $followers_list = User::find($id)->followers();
+        $followers_name_list = array();
+        // find all follower names from ids.
+        foreach($followers_list as $followr){
+            $followers_name_list[] = User::find($followr)->name;
+           }
+        $follower_count =  sizeof($followers_list);
+
+       $package = array(User::findOrFail($id),$f,$followers_name_list,$follower_count);
         if(Auth::user()->follows($id)){
-            return view('pages.profile.profile', ['idAndFriends' => $package],['tweets' => $tweets]);
+            return view('pages.profile.profile', ['idFriendsFollowersFollowCount' => $package],['tweets' => $tweets]);
         }
         else
             return view('pages.profile.notfriend', ['idAndFriends' => $package]);

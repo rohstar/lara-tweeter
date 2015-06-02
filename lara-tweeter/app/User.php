@@ -74,6 +74,12 @@ Handling Friendships
         } else return false;
     }
 
+    public function followers(){
+        $user = $this->id;
+        $followers = DB::table('friends')->where('friend_id', $user)->lists('user_id');
+        return $followers;
+    }
+
 
 
 //    public function followedBy($friend_id){
