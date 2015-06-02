@@ -88,15 +88,19 @@ class FriendController extends Controller {
 		//
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param AddFriendRequest $request
+     * @return Response
+     * @internal param int $id
+     */
+	public function destroy(AddFriendRequest $request)
 	{
-		//
+        Auth::user()->removeFriend($request->get('hidden'));
+        $redirect_url = $request->get('hidden');
+        Flash::success('Unfollowed!');
+        return redirect(url('user', $redirect_url));
 	}
 
 }

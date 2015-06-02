@@ -14,7 +14,7 @@
                             <div class="pull-right">
                                 {!! Form::open(['url' => '/friend']) !!}
                                 {!! Form::hidden('hidden',$idAndFriends[0]->id) !!}
-                                {!! Form::submit('Follow',['class' => 'btn btn-small']) !!}
+                                {!! Form::submit('Follow',['class' => 'btn btn-primary']) !!}
                                 {!! Form::close() !!}
                             </div>
                     </div>

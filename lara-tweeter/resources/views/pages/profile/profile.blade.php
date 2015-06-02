@@ -13,10 +13,10 @@
                                     {!! Form::submit('Follow!',['class' => 'btn btn-small']) !!}-->
                         @if(Auth::user()->id != $idAndFriends[0]->id)
                                 <div class="pull-right">
-                                    <!---{!! Form::open(['url' => '/friend']) !!} -->
-                                    <!---{!! Form::hidden('hidden',$idAndFriends[0]->id) !!}-->
-                                    {!! Form::submit('Following',['class' => 'btn btn-small']) !!}
-                                    <!--- {!! Form::close() !!}-->
+                                    {!! Form::open(['url' => '/unfriend']) !!}
+                                    {!! Form::hidden('hidden',$idAndFriends[0]->id) !!}
+                                    {!! Form::submit('Unfollow',['class' => 'btn btn-danger']) !!}
+                                     {!! Form::close() !!}
                             </div>
                                 @else
                             <div class="pull-right">Welcome to your profile!

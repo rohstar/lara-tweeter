@@ -20,6 +20,8 @@ Route::get('user/{id}/{post_id}', 'UserController@showUserPost');
 Route::get('user/all', 'UserController@showUserPost');
 
 Route::post('friend','FriendController@store');
+Route::post('unfriend','FriendController@destroy');
+
 
 Route:resource('tweet','TweetController');
 

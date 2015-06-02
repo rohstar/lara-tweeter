@@ -59,6 +59,11 @@ Handling Friendships
         $this->friends()->attach($friendId);
     }
 
+    public function removeFriend($friendId)
+    {
+        $this->friends()->detach($friendId);
+    }
+
     public function follows($friend_id){
 
         $friend_ = $this->friends->lists('id');
@@ -67,9 +72,9 @@ Handling Friendships
         if (in_array($friend_id, $friend_)) {
             return true;
         } else return false;
-
-
     }
+
+
 
 //    public function followedBy($friend_id){
 //
