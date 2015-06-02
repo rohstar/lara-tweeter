@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-xs-10 col-md-10">
+            <div class="col-xs-10 col-md-10 col-md-offset-1">
 
 
                 <div class="panel panel-default">
@@ -42,7 +42,7 @@
             </div>
 
 
-            <div class="col-xs-10 col-sm-10 col-md-10">
+            <div class="col-xs-10 col-sm-10 col-md-10 col-md-offset-1 ">
                 <div class="panel panel-default">
                     <div class="panel-heading">Your Lara-Feed</div>
                         <div class="panel-body">
