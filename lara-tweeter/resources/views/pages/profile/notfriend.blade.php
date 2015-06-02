@@ -6,7 +6,7 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="jumbotron">
-                        <h1>{{ $idAndFriends[0]->name }}'s profile.</h1>
+                        <h1 class="text-right">{{ $idAndFriends[0]->name }}</h1>
                         <!-- MAKE LOGIC TO SHOW FOLLOW BUTTON MAN
                         else
                         if(Auth::user()->follows($idAndFriends[0]->id))

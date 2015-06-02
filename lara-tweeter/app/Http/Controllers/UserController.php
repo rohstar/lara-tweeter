@@ -33,6 +33,13 @@ class UserController extends Controller {
         return $tweets;
     }
 
+    public function allUsers()
+    {
+       $users = User::all();
+
+       return view('pages.allusers', compact('users'));
+    }
+
 
 	/**
 	 * Show the form for creating a new resource.

@@ -6,7 +6,7 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="jumbotron">
-                        <h1>{{ $idFriendsFollowersFollowCount[0]->name }}'s profile.</h1>
+                        <h1 class="text-right">{{ $idFriendsFollowersFollowCount[0]->name }}</h1>
                         <!-- MAKE LOGIC TO SHOW FOLLOW BUTTON MAN
                         else
                         if(Auth::user()->follows($idAndFriends[0]->id))
@@ -18,18 +18,14 @@
                                     {!! Form::submit('Unfollow',['class' => 'btn btn-danger']) !!}
                                      {!! Form::close() !!}
                             </div>
-                                @else
-                            <div class="pull-right">Welcome to your profile!
-                            </div>
-
                         @endif
                     </div>
- <div class="panel-heading"><h4 class="text-right"><small>Followed by </small>{{$idFriendsFollowersFollowCount[3]}}</h4>
+ <div class="panel-heading"><h4 class="text-right"><small>Followed by </small>{{$idFriendsFollowersFollowCount[3]}}</h4>Recent Lara-Tweets
                     </div>
                     <div class="panel-body">
                             @include('pages.partials.tweets',['user' => $idFriendsFollowersFollowCount[0]->id])
-                        </div>
-                    </div>
+                        </div><div>
+                    </div><hr>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="panel-heading"> Follows: </div>
@@ -56,6 +52,4 @@
             </div>
                 </div>
             </div>
-        </div>
-    </div>
 @endsection

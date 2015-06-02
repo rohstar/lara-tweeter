@@ -15,6 +15,13 @@ Route::get('/', 'HomeController@index');
 
 Route::get('home', 'HomeController@index');
 Route::get('profile/{id}', 'UserController@show');
+Route::get('user', function() {
+
+    return redirect(url('user',Auth::user()->id));
+});
+
+Route::get('all', 'UserController@allUsers');
+
 Route::get('user/{id}', 'UserController@show');
 Route::get('user/{id}/{post_id}', 'UserController@showUserPost');
 Route::get('user/all', 'UserController@showUserPost');
