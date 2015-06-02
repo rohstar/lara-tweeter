@@ -12,24 +12,21 @@
                         if(Auth::user()->follows($idAndFriends[0]->id))
                                     {!! Form::submit('Follow!',['class' => 'btn btn-small']) !!}-->
                         @if(Auth::user()->id != $idAndFriends[0]->id)
-                            <div class="pull-right">
-                                {!! Form::open(['url' => '/friend']) !!}
-                                {!! Form::hidden('hidden',$idAndFriends[0]->id) !!}
-                                {!! Form::submit('Follow',['class' => 'btn btn-small']) !!}
-                                {!! Form::close() !!}
+                                <div class="pull-right">
+                                    <!---{!! Form::open(['url' => '/friend']) !!} -->
+                                    <!---{!! Form::hidden('hidden',$idAndFriends[0]->id) !!}-->
+                                    {!! Form::submit('Following',['class' => 'btn btn-small']) !!}
+                                    <!--- {!! Form::close() !!}-->
                             </div>
                                 @else
-                            <div class="pull-right">
-                                Welcome to your profile!
+                            <div class="pull-right">Welcome to your profile!
                             </div>
 
                         @endif
                     </div>
                     <div class="panel-heading">Recent Lara-Tweets</div>
                     <div class="panel-body">
-                        @if($idAndFriends[0]->follows(Auth::user(),$idAndFriends[0]->id))
                             @include('pages.partials.tweets',['user' => $idAndFriends[0]->id])
-                        @endif
                         </div>
                     </div>
                 <div class="row">

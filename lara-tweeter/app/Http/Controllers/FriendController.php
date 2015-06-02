@@ -50,8 +50,9 @@ class FriendController extends Controller {
 	public function store(AddFriendRequest $request)
 	{
         Auth::user()->addFriend($request->get('hidden'));
+        $redirect_url = $request->get('hidden');
         Flash::success('Followed!');
-        return redirect('/');
+        return redirect(url('user', $redirect_url));
 	}
 
 	/**

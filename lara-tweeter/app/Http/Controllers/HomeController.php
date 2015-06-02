@@ -42,7 +42,7 @@ $user= Auth::user();
         $friend_ids = $user->friends->lists('id');
         // add your own id to show tweets by you
         $friend_ids[] = $user->id;
-        $tweets = DB::table('tweets')->whereIn('user_id', $friend_ids)->orderBy('created_at','desc')->get();
+        $tweets = Tweet::whereIn('user_id', $friend_ids)->orderBy('created_at','desc')->get();
 		return view('home',['user' => $user, 'tweets' => $tweets]);
 	}
 

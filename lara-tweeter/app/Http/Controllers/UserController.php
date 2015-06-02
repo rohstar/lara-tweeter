@@ -4,7 +4,7 @@ use App\User;
 use App\Tweet;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Auth;
 use DB;
 use Illuminate\Http\Request;
 
@@ -67,10 +67,15 @@ class UserController extends Controller {
 	public function show($id)
 	{
         $tweets = Tweet::where('user_id','=',$id)->get();
-        //$tweets = User::find($id)->tweets->toArray());
         $f = User::find($id)->friends->lists('name');
         $package = array(User::findOrFail($id),$f);
-        return view('pages.profile.profile', ['idAndFriends' => $package],['tweets' => $tweets]);
+        if(Auth::user()->follows($id)){
+            return view('pages.profile.profile', ['idAndFriends' => $package],['tweets' => $tweets]);
+        }
+        else
+            return view('pages.profile.notfriend', ['idAndFriends' => $package]);
+
+//
 	}
 
 	/**
