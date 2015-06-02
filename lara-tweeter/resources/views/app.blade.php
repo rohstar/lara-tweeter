@@ -34,7 +34,6 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
                     @if (Auth::check())
-                        <li><a href="{{ url('tweet/create') }}">Create Lara-Tweet</a></li>
                         <li><a href="{{ url('user') }}">Profile</a></li>
                         <li><a href="{{ url('all') }}">All Users</a></li>
                      @endif
