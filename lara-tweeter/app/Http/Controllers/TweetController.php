@@ -46,12 +46,10 @@ class TweetController extends Controller {
     public function store(CreateTweetRequest $request)
 
     {
-        // associate the current user to the content
         Auth::user()->tweets()->create($request->all());
         flash()->success('You have shared your profound wisdom with the world!');
 
         return redirect('/');
-
 	}
 
 	public function show($id)
@@ -60,25 +58,6 @@ class TweetController extends Controller {
 		$tweet = Tweet::findOrFail($id);
         return view('pages.posts.one_post', compact('tweet'));
         //return $tweet;
-	}
-
-	public function edit($id)
-
-	{
-		//
-	}
-
-
-	public function update($id)
-
-	{
-		//
-	}
-
-	public function destroy($id)
-
-	{
-		//
 	}
 
 }

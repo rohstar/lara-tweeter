@@ -13,36 +13,6 @@ use Flash;
 class FriendController extends Controller {
 
 	/**
-	 * Display all the people the given user follows
-	 *
-	 * @return Response
-	 */
-	public function index($user_id)
-	{
-    }
-
-    /**
-     *
-     * Display all the user's followers
-     * @param $friend_id
-     * @return mixed
-     */
-    public function followers($friend_id)
-    {
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @param AddFriendRequest $request
-     * @return Response
-     */
-	public function create()
-	{
-
-	}
-
-	/**
 	 * Store a new follow relation in storage.
 	 *
 	 * @return Response
@@ -53,39 +23,6 @@ class FriendController extends Controller {
         $redirect_url = $request->get('hidden');
         Flash::success('Followed!');
         return redirect(url('user', $redirect_url));
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
 	}
 
     /**

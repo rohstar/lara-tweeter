@@ -80,19 +80,4 @@ Handling Friendships
         return $followers;
     }
 
-
-
-//    public function followedBy($friend_id){
-//
-//        $friend_ = $this->friends->lists('id');
-//
-//        $followers =DB::
-//
-//        if (in_array($friend_id, $friend_)) {
-//            return true;
-//        } else return false;
-//
-//
-//    }
-
 }
