@@ -15,13 +15,11 @@
                             <li><a href="{{ url('/auth/login') }}">Login</a></li>
                             <li><a href="{{ url('/auth/register') }}">Register</a></li>
                         @else
-
                             {!! Form::open(['url' => 'tweet', 'data-toggle' => 'validator']) !!}
                             <div class="form-group">
                                 {!! Form::text('content',null,[ 'class' => 'form-control', 'maxlength' => '200']) !!}
                                 <span class="help-block">Max 200 Characters</span>
                             </div>
-
                             <div class="form-group">
                                 {!! Form::submit('Lara-Tweet!',null,[ 'class' => 'btn btn-primary form-control']) !!}
                             </div>
@@ -38,10 +36,7 @@
                             @endforeach
                         </ul>
                     @endif</div>
-
             </div>
-
-
             <div class="col-xs-10 col-sm-10 col-md-10 col-md-offset-1 ">
                 <div class="panel panel-default">
                     <div class="panel-heading">Your Lara-Feed</div>

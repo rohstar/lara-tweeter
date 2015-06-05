@@ -68,7 +68,7 @@
 
     <script>
         //for the delay in the flash message
-        $('div.alert').delay(5000).slideUp(300);
+        $('div.alert').delay(4000).slideUp(300);
         //if you wanted an overlay
         $('#flash-overlay-modal').modal();
     </script>

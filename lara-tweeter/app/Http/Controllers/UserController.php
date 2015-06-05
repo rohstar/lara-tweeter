@@ -121,10 +121,11 @@ class UserController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
-	{
-		//
-	}
+    public function socialLogin(){
+
+       return \Socialite::with('twitter')->redirect();
+
+    }
 
 	/**
 	 * Remove the specified resource from storage.

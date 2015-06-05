@@ -37,8 +37,29 @@ Route:resource('tweet','TweetController');
 //    Route::get('post/{id}', 'TweetController@show');
 //    Route::post('post', 'TweetController@store');
 
+Route::get('gototwitter', function(){
+
+    return \Socialite::with('twitter')->redirect();
+
+});
+
+Route::get('twitter', function(){
+
+    $user = \Socialite::with('twitter')->user();
+    dd($user);
+
+});
+
+Route::get('gotofacebook', function(){
+    return \Socialite::with('facebook')->redirect();
+});
+
+Route::get('facebook', function(){
+    $user = \Socialite::with('facebook')->user();
+    dd($user);
+});
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+	'password' => 'Auth\PasswordController'
 ]);

@@ -7,16 +7,16 @@ use App\Http\Controllers\Controller;
 
 use App\User;
 use Illuminate\Support\Facades\Auth;
-use Request;
 use Flash;
 
 class FriendController extends Controller {
 
-	/**
-	 * Display all the people the given user follows
-	 *
-	 * @return Response
-	 */
+    /**
+     * Display all the people the given user follows
+     *
+     * @param $user_id
+     * @return Response
+     */
 	public function index($user_id)
 	{
     }
@@ -42,11 +42,12 @@ class FriendController extends Controller {
 
 	}
 
-	/**
-	 * Store a new follow relation in storage.
-	 *
-	 * @return Response
-	 */
+    /**
+     * Store a new follow relation in storage.
+     *
+     * @param AddFriendRequest $request
+     * @return Response
+     */
 	public function store(AddFriendRequest $request)
 	{
         Auth::user()->addFriend($request->get('hidden'));

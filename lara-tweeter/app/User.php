@@ -8,7 +8,6 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
 	use Authenticatable, CanResetPassword;
@@ -79,20 +78,5 @@ Handling Friendships
         $followers = DB::table('friends')->where('friend_id', $user)->lists('user_id');
         return $followers;
     }
-
-
-
-//    public function followedBy($friend_id){
-//
-//        $friend_ = $this->friends->lists('id');
-//
-//        $followers =DB::
-//
-//        if (in_array($friend_id, $friend_)) {
-//            return true;
-//        } else return false;
-//
-//
-//    }
 
 }

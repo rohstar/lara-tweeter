@@ -146,8 +146,8 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
         //helps create flash messages easily..
-        'Laracasts\Flash\FlashServiceProvider'
-
+        'Laracasts\Flash\FlashServiceProvider',
+        'Laravel\Socialite\SocialiteServiceProvider'
 	],
 
 	/*
@@ -197,7 +197,8 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
         'Form'      => 'Illuminate\Html\FormFacade',
         'Html'      => 'Illuminate\Html\HtmlFacade',
-        'Flash'     => 'Laracasts\Flash\Flash'
+        'Flash'     => 'Laracasts\Flash\Flash',
+        'Socialite' => 'Laravel\Socialite\Facades\Socialite'
 	],
 
 ];
