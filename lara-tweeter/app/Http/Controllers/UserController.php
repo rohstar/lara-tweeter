@@ -18,8 +18,7 @@ class UserController extends Controller {
 	 */
 	public function index()
 	{
-      /*  $tweets = Tweet::where('user_id','=',$id)->get();
-        return view('pages.profile', ['user' => User::findOrFail($id)],['tweets' => $tweets]);*/
+
 	}
 
     /**

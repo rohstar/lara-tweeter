@@ -11,6 +11,9 @@
 |
 */
 
+use Laracasts\Flash\Flash;
+use App\User;
+
 Route::get('/', 'HomeController@index');
 
 Route::get('home', 'HomeController@index');
@@ -44,10 +47,7 @@ Route::get('gototwitter', function(){
 });
 
 Route::get('twitter', function(){
-
     $user = \Socialite::with('twitter')->user();
-    dd($user);
-
 });
 
 Route::get('gotofacebook', function(){
@@ -56,7 +56,18 @@ Route::get('gotofacebook', function(){
 
 Route::get('facebook', function(){
     $user = \Socialite::with('facebook')->user();
-    dd($user);
+    $user_dets = Array(
+        $user->getId(),
+        $user->getName(),
+        $user->getEmail(),
+        $user->getAvatar()
+    );
+
+    if(User::where('email', '=', $user_dets[2])->exists()){
+        Flash::message('User exists, login!');
+        redirect(url('auth/login'));
+    }
+    return view('auth.facebook',['user_dets' => $user_dets]);
 });
 
 Route::controllers([
