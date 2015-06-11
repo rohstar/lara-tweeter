@@ -38,9 +38,7 @@ class HomeController extends Controller {
 	{
 $user= Auth::user();
         $user = Auth::user($user->id);
-        //adding your friends id's to the array
         $friend_ids = $user->friends->lists('id');
-        // add your own id to show tweets by you
         $friend_ids[] = $user->id;
         $tweets = Tweet::whereIn('user_id', $friend_ids)->orderBy('created_at','desc')->get();
 		return view('home',['user' => $user, 'tweets' => $tweets]);

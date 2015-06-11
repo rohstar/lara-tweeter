@@ -24,12 +24,7 @@ class TweetController extends Controller {
 	 */
 	public function index()
 	{
-        // take the tweets from the table by
-        // descending order of created_at,
-        // and then get those vals.
-
         $tweets = Tweet::latest('created_at')->get();
-
         return view('pages.posts.show', compact('tweets'));
 	}
 
@@ -57,7 +52,6 @@ class TweetController extends Controller {
 	{
 		$tweet = Tweet::findOrFail($id);
         return view('pages.posts.one_post', compact('tweet'));
-        //return $tweet;
 	}
 
 }

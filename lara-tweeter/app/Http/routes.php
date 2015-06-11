@@ -32,12 +32,6 @@ Route::post('unfriend','FriendController@destroy');
 
 Route:resource('tweet','TweetController');
 
-//    Route::get('post', 'TweetController@index');
-//    Route::get('post/make', 'TweetController@create');
-//    Route::get('post/{id}', 'TweetController@show');
-//    Route::post('post', 'TweetController@store');
-
-
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
