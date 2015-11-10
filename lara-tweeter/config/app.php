@@ -147,7 +147,8 @@ return [
 		'App\Providers\RouteServiceProvider',
         //helps create flash messages easily..
         'Laracasts\Flash\FlashServiceProvider',
-        'Laravel\Socialite\SocialiteServiceProvider'
+        //'Laravel\Socialite\SocialiteServiceProvider',
+        'AdamWathan\EloquentOAuthL5\EloquentOAuthServiceProvider'
 	],
 
 	/*
@@ -198,7 +199,8 @@ return [
         'Form'      => 'Illuminate\Html\FormFacade',
         'Html'      => 'Illuminate\Html\HtmlFacade',
         'Flash'     => 'Laracasts\Flash\Flash',
-        'Socialite' => 'Laravel\Socialite\Facades\Socialite'
+        //'Socialite' => 'Laravel\Socialite\Facades\Socialite',
+        'OAuth'     => 'AdamWathan\EloquentOAuth\Facades\OAuth'
 	],
 
 ];
