@@ -1,6 +1,6 @@
 # lara-tweeter
 
-A social network created with Laravel 5 that mimics the popular social network. 
+A social network created with Laravel 5 that mimics twitter. 
 
 #V1.0 Live: 
 
